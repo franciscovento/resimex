@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <div className="my-custom-css">HOME</div>
+      <div className="text-app-blue">HOME</div>
     </>
   );
 }

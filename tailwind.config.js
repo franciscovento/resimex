@@ -3,8 +3,12 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  // Ensure these match with .storybook/preview.js
   theme: {
+    extend: {
+      colors: {
+        'app-blue': '#008080',
+      },
+    },
     screens: {
       xs: '375px',
       sm: '600px',
