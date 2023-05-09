@@ -26,7 +26,7 @@ const Footer = ({ burble }: IFooter) => {
           <p className="hidden sm:block">contact.forwork@resimex.com</p>
         </div>
         {showBurble ? (
-          <div className="w-60 h-60 bg-white rounded-full absolute -top-44 right-4 text-app-sky-blue text-3xl flex items-center justify-center">
+          <div className="w-60 h-60 bg-white rounded-full absolute -top-44 right-4 text-app-sky-blue text-3xl flex items-center justify-center font-Nunito font-medium">
             Say, <br /> Hello!
           </div>
         ) : (

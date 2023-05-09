@@ -1,0 +1,13 @@
+.hero-background {
+  background: #e6ecf5;
+  background-image: url('/images/sudamerica.png');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 'auto';
+}
+
+@media (max-width: 950px) {
+  .hero-background {
+    background-position: -450px;
+  }
+}

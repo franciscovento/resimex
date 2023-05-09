@@ -10,7 +10,7 @@ interface IMainLayout {
 
 const MainLayout = ({ children, type }: IMainLayout) => {
   return (
-    <>
+    <div className="overflow-x-hidden">
       {type === 'main' && <MainHeader />}
       {(type === 'auth' || type === 'application') && (
         <AppHeader bgTransparent={type === 'auth' ? true : false} />
@@ -21,7 +21,7 @@ const MainLayout = ({ children, type }: IMainLayout) => {
       {(type === 'application' || type === 'main') && (
         <Footer burble={type === 'application' ? false : true} />
       )}
-    </>
+    </div>
   );
 };
 
