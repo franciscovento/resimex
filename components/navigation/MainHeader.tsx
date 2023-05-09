@@ -1,4 +1,5 @@
 import { Button } from '@material-tailwind/react';
+import Link from 'next/link';
 import ResimexIcon from '../svg/ResimexIcon';
 
 const MainHeader = () => {
@@ -11,7 +12,9 @@ const MainHeader = () => {
             <li key={index}>{item.title}</li>
           ))}
         </ul>
-        <Button className="bg-app-sky-blue">Get Started</Button>
+        <Link href={'/auth/login'}>
+          <Button className="bg-app-sky-blue">Get Started</Button>
+        </Link>
       </div>
     </div>
   );

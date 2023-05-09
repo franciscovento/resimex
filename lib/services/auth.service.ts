@@ -6,7 +6,7 @@ const login = (data: { email: string; password: string }) => {
   return axios.post(`/auth/login`, data);
 };
 
-const signup = (data: SignUp) => {
+const createAccount = (data: SignUp) => {
   return axios.post(`/auth/sign-up`, data);
 };
 
@@ -18,4 +18,4 @@ const forgetPassword = () => {};
 
 const changuePassword = () => {};
 
-export { login, signup, authMe };
+export { login, createAccount, authMe };

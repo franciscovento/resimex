@@ -8,7 +8,7 @@ const AppHeader = ({ bgTransparent = false }: IAppHeader) => {
     <div
       className={`header-diagonal  py-4 ${bgTransparent && '!bg-transparent'}`}
     >
-      <div className="app-container diagonal">
+      <div className="px-12 py-2 diagonal">
         <ResimexIcon />
       </div>
     </div>

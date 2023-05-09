@@ -10,5 +10,5 @@ const Home: NextPageWithLayout = () => {
 
 export default Home;
 Home.getLayout = (page) => {
-  return <MainLayout type="auth">{page}</MainLayout>;
+  return <MainLayout type="main">{page}</MainLayout>;
 };

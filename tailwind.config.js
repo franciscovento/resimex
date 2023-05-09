@@ -7,6 +7,10 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Mulish: ['Mulish'],
+        Nunito: ['Nunito'],
+      },
       colors: {
         'app-sky-blue-light': '#E6ECF5',
         'app-blue': '#07469C',
