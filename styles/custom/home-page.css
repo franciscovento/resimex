@@ -1,3 +1,4 @@
+/* HERO */
 .hero-background {
   background: #e6ecf5;
   background-image: url('/images/sudamerica.png');
@@ -6,8 +7,20 @@
   background-size: 'auto';
 }
 
-@media (max-width: 950px) {
+@media (max-width: 600px) {
   .hero-background {
-    background-position: -450px;
+    background-position: -250px;
   }
+}
+
+/* DIVIDER */
+.divider-diagonal-white {
+  background-color: white;
+  transform: rotate(-4deg) translateX(-2px);
+}
+
+.divider-diagonal-blue {
+  background-color: #0099e1;
+  clip-path: polygon(0 0, 100% -2%, 100% -100%, 0 100%);
+  transform: rotate(4deg) translateX(-4px);
 }

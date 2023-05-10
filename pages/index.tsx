@@ -1,41 +1,26 @@
+import Divider from '@/components/Divider';
+import Hero from '@/components/home/Hero';
 import MainLayout from '@/components/layouts/MainLayout';
-import { useWindowSize } from '@/lib/hooks';
-import Lottie from 'lottie-react-web';
-import Image from 'next/image';
-import calendarAnimation from '../public/animations/animation-text.json';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
-  const { width = 0 } = useWindowSize();
   return (
     <>
-      <div className="text-app-blue hero-background app-banner -mt-24 -z-[9] pt-32 ">
-        <div className="absolute top-16 sm:top-10 left-1/2 -translate-x-1/2">
-          <Lottie
-            width={width > 600 ? 900 : 450}
-            options={{
-              animationData: calendarAnimation,
-            }}
-          />
-        </div>
-        <div className="app-container relative flex flex-col h-[450px] sm:h-[580px] justify-end gap-32 sm:gap-12">
-          <div className="max-w-[500px] text-xl text-black mx-auto pl-20 sm:pl-32">
-            <p className="text-sm sm:text-xl">
-              <span className="font-bold">
-                {' '}
-                Global citizenship and residency at your fingertips
-              </span>{' '}
-              Everyone has the opportunity to thrive, no matter where home is
-            </p>
-          </div>
-          <div className="mx-auto py-8">
-            <Image
-              src={'/images/persons-international.png'}
-              width={400}
-              height={65}
-              alt=""
-            />
-          </div>
+      {/* SECTION HERO */}
+      <Hero />
+      <Divider />
+
+      {/* SECTION 2 */}
+      <div className="py-12 grid grid-cols-2">
+        <div>IMAGE</div>
+        <div>
+          <h3>The most valuable investment you may ever make</h3>
+          <p>
+            Resimex is a multidisciplinary firm offering bespoke residence and
+            citizenship solutions in Mexico. Whether it s matching you to your
+            ideal investment, Golden Visa program or tax benefit, we help
+            investors successfully uproot their lives and lifestyles.
+          </p>
         </div>
       </div>
     </>

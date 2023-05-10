@@ -4,7 +4,7 @@ import ResimexIcon from '../svg/ResimexIcon';
 
 const MainHeader = () => {
   return (
-    <div>
+    <div className="py-4">
       <div className="app-container flex justify-between items-center">
         <ResimexIcon />
         <ul className="sm:flex gap-12 hidden">
