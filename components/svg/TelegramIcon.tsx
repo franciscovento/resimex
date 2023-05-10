@@ -1,5 +1,5 @@
 interface ITelegramIcon {
-  className: string;
+  className?: string;
 }
 const TelegramIcon = ({ className }: ITelegramIcon) => {
   return (

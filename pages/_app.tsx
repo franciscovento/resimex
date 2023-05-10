@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   return (
     <ThemeProvider>
-      <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>;
+      <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
     </ThemeProvider>
   );
 }

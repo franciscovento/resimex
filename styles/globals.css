@@ -24,7 +24,7 @@
     @apply w-screen m-auto relative left-[calc(-50vw_+_50%)];
   }
   .app-container {
-    @apply m-auto p-4 lg:max-w-6xl;
+    @apply m-auto px-4 lg:max-w-6xl;
   }
 }
 .header-diagonal {
