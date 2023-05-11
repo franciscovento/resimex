@@ -9,7 +9,6 @@ interface IFooter {
 const Footer = ({ burble }: IFooter) => {
   const [showBurble, setShowBurble] = useState(burble);
   const { width } = useWindowSize();
-  console.log(width);
 
   useEffect(() => {
     if (width && width < 600) {
