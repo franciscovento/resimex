@@ -20,25 +20,25 @@ const Checkout: NextPageWithLayout = () => {
       <div className="grid grid-cols-3 gap-8 mt-12">
         <Card className="p-8  col-span-full md:col-span-2">
           <form className="flex flex-col gap-4">
-            <Input disabled variant="standard" label="Legal name" />
-            <div className="flex gap-8">
-              <Input disabled variant="standard" label="Your Nationality" />
-              <Input disabled variant="standard" label="Your Gender" />{' '}
+            <Input value={'Your name'} disabled label="Legal name" />
+            <div className="flex flex-col sm:flex-row gap-8">
+              <Input disabled label="Your Nationality" />
+              <Input disabled label="Your Gender" />{' '}
             </div>
-            <Input disabled variant="standard" label="Your Residence" />
-            <div className="flex gap-8">
-              <Input disabled variant="standard" label="Residence address" />
-              <Input disabled variant="standard" label="Postcode" />
+            <Input disabled label="Your Residence" />
+            <div className="flex flex-col sm:flex-row gap-8">
+              <Input disabled label="Residence address" />
+              <Input disabled label="Postcode" />
             </div>
-            <Input disabled variant="standard" label="Contact Phone" />
+            <Input disabled label="Contact Phone" />
 
-            <Input disabled variant="standard" label="E-mail" />
+            <Input disabled label="E-mail" />
 
-            <div className="flex gap-8">
-              <Input disabled variant="standard" label="Your job" />
-              <Input disabled variant="standard" label="Date of birth" />
+            <div className="flex flex-col sm:flex-row gap-8">
+              <Input disabled label="Your job" />
+              <Input disabled label="Date of birth" />
             </div>
-            <Input disabled variant="standard" label="Any comments" />
+            <Input disabled label="Any comments" />
             <div className="flex flex-col gap-8 mt-4">
               <div>
                 <h3 className="font-semibold mb-4">Front passport</h3>

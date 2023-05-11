@@ -20,12 +20,12 @@ const PersonalInformationPage: NextPageWithLayout = () => {
         <Card className="p-8  col-span-full md:col-span-2">
           <form className="flex flex-col gap-4">
             <Input variant="standard" label="Legal name" />
-            <div className="flex gap-8">
+            <div className="flex gap-8 flex-col sm:flex-row">
               <Input variant="standard" label="Your Nationality" />
               <Input variant="standard" label="Your Gender" />{' '}
             </div>
             <Input variant="standard" label="Your Residence" />
-            <div className="flex gap-8">
+            <div className="flex gap-8 flex-col sm:flex-row">
               <Input variant="standard" label="Residence address" />
               <Input variant="standard" label="Postcode" />
             </div>
@@ -33,7 +33,7 @@ const PersonalInformationPage: NextPageWithLayout = () => {
 
             <Input variant="standard" label="E-mail" />
 
-            <div className="flex gap-8">
+            <div className="flex gap-8 flex-col sm:flex-row">
               <Input variant="standard" label="Your job" />
               <Input variant="standard" label="Date of birth" />
             </div>
