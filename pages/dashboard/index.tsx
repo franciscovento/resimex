@@ -1,12 +1,18 @@
 import MainLayout from '@/components/layouts/MainLayout';
 import Title from '@/components/text/Title';
 import { Button, Card } from '@material-tailwind/react';
+import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 
 const DashBoardPage: NextPageWithLayout = () => {
+  const router = useRouter();
   const firstStep = false;
   const secondStep = false;
   const thirdStep = false;
+
+  const handleSteps = () => {
+    router.push('/dashboard/personal-information');
+  };
   return (
     <div className="app-banner bg-app-sky-blue-light -mt-4 py-12 relative">
       <div className="app-container flex flex-col items-center justify-center max-w-xl mx-auto z-20 relative">
@@ -17,7 +23,7 @@ const DashBoardPage: NextPageWithLayout = () => {
           Lifestyle choices vary, which is why we take the time to learn about
           your individual situation and requirements.
           <br />
-          <br /> We ll assist you from start to ﬁnish, ensuring you have the
+          <br /> We ll assist you from start to finish, ensuring you have the
           insight and knowledge needed to succeed.
         </p>
         <Card className="py-8 px-2 sm:p-8 flex flex-col gap-8 my-12">
@@ -60,7 +66,10 @@ const DashBoardPage: NextPageWithLayout = () => {
             );
           })}
         </Card>
-        <Button className="bg-app-sky-blue w-full sm:w-[344px]">
+        <Button
+          onClick={handleSteps}
+          className="bg-app-sky-blue w-full sm:w-[344px]"
+        >
           {!firstStep
             ? 'Get Started'
             : thirdStep

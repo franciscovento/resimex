@@ -15,7 +15,7 @@ const BackToTop = ({ ...svgProps }: IBackToTop) => {
         stroke="#0099E1"
         stroke-width="2"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
