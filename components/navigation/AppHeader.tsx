@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ResimexIcon from '../svg/ResimexIcon';
 
 interface IAppHeader {
@@ -9,7 +10,9 @@ const AppHeader = ({ bgTransparent = false }: IAppHeader) => {
       className={`header-diagonal  py-4 ${bgTransparent && '!bg-transparent'}`}
     >
       <div className="px-12 py-2 diagonal">
-        <ResimexIcon />
+        <Link href={'/'}>
+          <ResimexIcon />
+        </Link>
       </div>
     </div>
   );

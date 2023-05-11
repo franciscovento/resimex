@@ -4,7 +4,7 @@ import Title from '../text/Title';
 
 const WhyChooseUs = () => {
   return (
-    <div className="app-banner bg-app-gray-lighter pb-24 relative">
+    <div className="app-banner bg-app-gray-lighter pb-28 relative">
       <div className="app-container relative">
         <Title tag="h3" position="center">
           Why Choose Us
@@ -32,7 +32,7 @@ const WhyChooseUs = () => {
             />
           </div>
         </div>
-        <div className="absolute right-4 -bottom-12 flex gap-2 items-center font-medium text-sm">
+        <div className="absolute right-4 -bottom-16 flex gap-2 items-center font-medium text-sm animate-bounce">
           <BackToTop />
           <span>Back to Top</span>
         </div>
