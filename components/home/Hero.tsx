@@ -7,16 +7,16 @@ const Hero = () => {
   const { width = 0 } = useWindowSize();
   return (
     <div className="text-app-blue bg-app-sky-blue-light app-banner -mt-32 -z-[9] pt-32 pb-8">
-      <div className="absolute top-16 sm:top-10 left-1/2 -translate-x-1/2 z-[99]">
+      <div className="absolute top-24 sm:top-10 left-1/2 -translate-x-1/2 z-[99]">
         <Lottie
-          width={width > 600 ? 900 : 450}
+          width={width > 600 ? 900 : 550}
           options={{
             animationData: calendarAnimation,
           }}
         />
       </div>
       <div className="hero-background app-container ">
-        <div className="max-w-4xl mx-auto min-h-[450px] grid grid-cols-2 content-center sm:mt-32">
+        <div className="max-w-4xl mx-auto min-h-[650px] sm:min-h-[550px] grid grid-cols-2 content-center sm:mt-32">
           <div className="relative right-10 sm:right-0">
             <Bubble />
           </div>
