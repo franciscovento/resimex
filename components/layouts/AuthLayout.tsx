@@ -1,3 +1,4 @@
+import { Carousel } from '@material-tailwind/react';
 import Image from 'next/image';
 import React from 'react';
 
@@ -17,12 +18,26 @@ const AuthLayout = ({ children }: IAuthLayout) => {
         className="bg-app-sky-blue-light h-28 app-banner fixed bottom-0 -z-[9]"
       ></div>
       <div className="hidden md:block w-[440px] h-full bg-red-50 fixed top-0 right-0">
-        <Image
-          src={'/images/mock-person.png'}
-          fill
-          alt=""
-          style={{ objectFit: 'cover' }}
-        />
+        <Carousel autoplay nextArrow={() => null} prevArrow={() => null} loop>
+          <Image
+            src={'/images/mock-person.png'}
+            fill
+            alt=""
+            style={{ objectFit: 'cover' }}
+          />
+          <Image
+            src={'/images/mock-person.png'}
+            fill
+            alt=""
+            style={{ objectFit: 'cover' }}
+          />
+          <Image
+            src={'/images/mock-person.png'}
+            fill
+            alt=""
+            style={{ objectFit: 'cover' }}
+          />
+        </Carousel>
       </div>
     </div>
   );
