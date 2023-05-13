@@ -13,7 +13,7 @@ const BackToTop = ({ ...svgProps }: IBackToTop) => {
       <path
         d="M15 23V7M8 14L15 7L22 14"
         stroke="#0099E1"
-        stroke-width="2"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

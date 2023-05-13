@@ -1,10 +1,16 @@
+import PersonalInformation from '@/components/forms/PersonalInformation';
 import MainLayout from '@/components/layouts/MainLayout';
 import Title from '@/components/text/Title';
-import { Button, Card, Input } from '@material-tailwind/react';
+import { useApplication } from '@/lib/hooks/useApplication';
+import { Card } from '@material-tailwind/react';
 import Link from 'next/link';
 import { NextPageWithLayout } from '../_app';
 
 const PersonalInformationPage: NextPageWithLayout = () => {
+  const { data: applicationResponse, error, isLoading } = useApplication();
+  if (isLoading) {
+    return <div>loading info ...</div>;
+  }
   return (
     <div className="py-12">
       <Link href="/dashboard">
@@ -18,32 +24,7 @@ const PersonalInformationPage: NextPageWithLayout = () => {
       </Title>
       <div className="grid grid-cols-3 gap-8 mt-12">
         <Card className="p-8  col-span-full md:col-span-2">
-          <form className="flex flex-col gap-4">
-            <Input variant="standard" label="Legal name" />
-            <div className="flex gap-8 flex-col sm:flex-row">
-              <Input variant="standard" label="Your Nationality" />
-              <Input variant="standard" label="Your Gender" />{' '}
-            </div>
-            <Input variant="standard" label="Your Residence" />
-            <div className="flex gap-8 flex-col sm:flex-row">
-              <Input variant="standard" label="Residence address" />
-              <Input variant="standard" label="Postcode" />
-            </div>
-            <Input variant="standard" label="Contact Phone" />
-
-            <Input variant="standard" label="E-mail" />
-
-            <div className="flex gap-8 flex-col sm:flex-row">
-              <Input variant="standard" label="Your job" />
-              <Input variant="standard" label="Date of birth" />
-            </div>
-            <Input variant="standard" label="Any comments" />
-            <div className="mt-8">
-              <Button className={'bg-app-sky-blue w-full'}>
-                Save and continue
-              </Button>
-            </div>
-          </form>
+          <PersonalInformation defaultValues={applicationResponse?.results} />
         </Card>
         <div className="hidden md:block col-span-1">
           <div className="p-8 bg-app-sky-blue-light rounded-2xl max-w-[285px] shadow-md">

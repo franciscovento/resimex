@@ -1,18 +1,37 @@
 import MainLayout from '@/components/layouts/MainLayout';
 import Title from '@/components/text/Title';
+import { useApplication } from '@/lib/hooks/useApplication';
 import { Button, Card } from '@material-tailwind/react';
 import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 
 const DashBoardPage: NextPageWithLayout = () => {
+  const { error, isLoading, data } = useApplication();
+  console.log({ error, isLoading, data });
   const router = useRouter();
-  const firstStep = false;
+  const firstStep = error ? false : true;
   const secondStep = false;
   const thirdStep = false;
 
   const handleSteps = () => {
-    router.push('/dashboard/personal-information');
+    if (!firstStep) {
+      return router.push('/dashboard/personal-information');
+    }
+    if (firstStep && !secondStep) {
+      return router.push('/dashboard/docs');
+    }
+    if (firstStep && secondStep && !thirdStep) {
+      return router.push('/dashboard/checkout');
+    }
+
+    if (firstStep && secondStep && thirdStep) {
+      console.log('Tienes que agendar cita');
+    }
   };
+
+  if (isLoading) {
+    return <div>Cargando info...</div>;
+  }
   return (
     <div className="app-banner bg-app-sky-blue-light -mt-4 py-12 relative">
       <div className="app-container flex flex-col items-center justify-center max-w-xl mx-auto z-20 relative">
