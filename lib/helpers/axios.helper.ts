@@ -1,6 +1,7 @@
-import axios from 'axios';
-import cookies from 'js-cookie';
+import axios, { AxiosError } from 'axios';
+import { default as cookies } from 'js-cookie';
 import getConfig from 'next/config';
+import { logout } from './logout.helper';
 
 const { publicRuntimeConfig } = getConfig();
 const BASE_URL = publicRuntimeConfig.BASE_URL;
@@ -16,5 +17,17 @@ instance.interceptors.request.use(async (config) => {
   }
   return config;
 });
+
+instance.interceptors.response.use(
+  async (resp) => {
+    return Promise.resolve(resp);
+  },
+  (error: AxiosError) => {
+    if (error.response?.status === 401) {
+      return logout();
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default instance;

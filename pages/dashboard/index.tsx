@@ -6,12 +6,11 @@ import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 
 const DashBoardPage: NextPageWithLayout = () => {
-  const { error, isLoading, data } = useApplication();
-  console.log({ error, isLoading, data });
   const router = useRouter();
+  const { error, isLoading, data } = useApplication();
   const firstStep = error ? false : true;
-  const secondStep = false;
-  const thirdStep = false;
+  const secondStep = data && data?.results.photos.length > 0 ? true : false;
+  const thirdStep = data && data.results.payments.length > 0 ? true : false;
 
   const handleSteps = () => {
     if (!firstStep) {
