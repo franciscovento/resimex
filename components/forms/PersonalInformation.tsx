@@ -4,6 +4,7 @@ import {
   createApplication,
   updateApplication,
 } from '@/lib/services/application.service';
+import { confirmModal } from '@/lib/services/notification.service';
 import { Button, Input } from '@material-tailwind/react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -72,14 +73,20 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
   };
 
   const generateApplication = async (data: Application) => {
-    createApplication(data)
-      .then((e) => {
-        alert('Se creó la aplicación correctamente');
-        router.push('/dashboard');
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    const result = await confirmModal({
+      message:
+        'You will be able to edit this information later. Once you make the payment you will no longer be able to update it.',
+    });
+    if (result) {
+      createApplication(data)
+        .then((e) => {
+          alert('Se creó la aplicación correctamente');
+          router.push('/dashboard');
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
 
   const editApplication = async (data: Application) => {
@@ -93,7 +100,12 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
           console.log(err);
         });
     }
-    const result = confirm('Estás seguro que no deseas modificar nada?');
+
+    const result = await confirmModal({
+      message:
+        "You haven't changed anything so the form will be saved with the original information.",
+      title: `You don${"'"}t want to change anything?`,
+    });
     return result ? router.push('/dashboard') : null;
   };
 
