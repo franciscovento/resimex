@@ -26,8 +26,17 @@ async function createApplication(data: Application) {
 //   return axios.post('/applications', data);
 // }
 
-function updateApplication(data: Application) {
+function updateApplication(data: Partial<Application>) {
   return axios.put(`/applications/application`, data);
 }
 
-export { getApplication, createApplication, updateApplication };
+function addDocumentPhoto(data: any) {
+  return axios.post('/applications/add-photo', data);
+}
+
+export {
+  getApplication,
+  createApplication,
+  updateApplication,
+  addDocumentPhoto,
+};

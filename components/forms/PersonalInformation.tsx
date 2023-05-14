@@ -1,3 +1,4 @@
+import { getDateFormatted } from '@/lib/helpers/getDateFormatted';
 import { Application } from '@/lib/interfaces/application/applicationResponse';
 import {
   createApplication,
@@ -42,11 +43,11 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
 
   useEffect(() => {
     if (defaultValues) {
-      const fecha = new Date(defaultValues?.date_of_birth);
-      const fechaFormateada = fecha.toISOString().slice(0, 10);
+      // const date = new Date(defaultValues?.date_of_birth);
+      // const dateFormatted = date.toISOString().slice(0, 10);
       reset({
         ...defaultValues,
-        date_of_birth: fechaFormateada,
+        date_of_birth: getDateFormatted(defaultValues?.date_of_birth),
       });
     }
   }, [defaultValues]);
