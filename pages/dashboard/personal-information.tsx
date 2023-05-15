@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { NextPageWithLayout } from '../_app';
 
 const PersonalInformationPage: NextPageWithLayout = () => {
-  const { data: applicationResponse, error, isLoading } = useApplication();
+  const { data: applicationResponse, isLoading } = useApplication();
   if (isLoading) {
     return <div>loading info ...</div>;
   }

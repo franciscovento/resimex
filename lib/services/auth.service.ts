@@ -14,8 +14,4 @@ const authMe = () => {
   return axios.get<AuthMeResponse>(`/auth/me`);
 };
 
-const forgetPassword = () => {};
-
-const changuePassword = () => {};
-
 export { login, createAccount, authMe };

@@ -82,7 +82,7 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
     });
     if (result) {
       createApplication(data)
-        .then((e) => {
+        .then(() => {
           successNotificationToast('Application created successfully!');
           router.push('/dashboard');
         })
