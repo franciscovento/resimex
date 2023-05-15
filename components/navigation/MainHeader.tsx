@@ -17,7 +17,7 @@ const MainHeader = () => {
             </li>
           ))}
         </ul>
-        <Link href={'/auth/login'}>
+        <Link href={'/dashboard/'}>
           <Button className="bg-app-sky-blue">Get Started</Button>
         </Link>
       </div>
