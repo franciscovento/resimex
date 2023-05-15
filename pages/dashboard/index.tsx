@@ -28,6 +28,18 @@ const DashBoardPage: NextPageWithLayout = () => {
     }
   };
 
+  const editApplication = (url: string, step: number) => {
+    if (step === 1) {
+      return firstStep ? router.push(url) : null;
+    }
+    if (step === 2) {
+      return secondStep ? router.push(url) : null;
+    }
+    if (step === 3) {
+      return firstStep && secondStep ? router.push(url) : null;
+    }
+  };
+
   if (isLoading) {
     return <div>Cargando info...</div>;
   }
@@ -74,7 +86,12 @@ const DashBoardPage: NextPageWithLayout = () => {
                 </div>
                 <div>
                   <Title tag="h3" underline={false} size="md">
-                    {item.title}
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => editApplication(item.url, item.step)}
+                    >
+                      {item.title}
+                    </div>
                   </Title>
                   <p className="break-before-auto text-sm sm:text-base">
                     {item.content}
@@ -118,17 +135,20 @@ const appMenu = [
     title: 'Your personal information',
     content:
       'Your basic personal information help us to offer the better option to your case',
+    url: '/dashboard/personal-information',
   },
   {
     step: 2,
     title: 'Up documentation',
     content:
       'Your basic personal information help us to offer the better option to your case',
+    url: '/dashboard/docs',
   },
   {
     step: 3,
     title: 'Date with our lawyers',
     content:
       'Your basic personal information help us to offer the better option to your case',
+    url: '/dashboard/checkout',
   },
 ];

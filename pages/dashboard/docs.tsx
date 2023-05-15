@@ -3,6 +3,10 @@ import Upload from '@/components/svg/Upload';
 import Check from '@/components/svg/check';
 import Title from '@/components/text/Title';
 import { addDocumentPhoto } from '@/lib/services/application.service';
+import {
+  failNotificationToast,
+  successNotificationToast,
+} from '@/lib/services/notification.service';
 import { ErrorMessage } from '@hookform/error-message';
 import { Button, Card, Checkbox } from '@material-tailwind/react';
 import Link from 'next/link';
@@ -44,13 +48,12 @@ const Docs: NextPageWithLayout = () => {
 
   const uploadPhotos = (data: any) => {
     addDocumentPhoto(data)
-      .then((resp) => {
-        alert('Se envió el información con éxito');
-        console.log(resp);
+      .then(() => {
+        successNotificationToast('Passport information added');
         router.push('/dashboard');
       })
       .catch((error) => {
-        alert('Ocurrió un error, inténtalo más tarde.');
+        failNotificationToast('An error ocurred, please try again later');
         console.log(error);
       });
   };
@@ -62,7 +65,7 @@ const Docs: NextPageWithLayout = () => {
     }
     return true;
   };
-  console.log(errors);
+
   return (
     <div className="py-12">
       <Link href="/dashboard">

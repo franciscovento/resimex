@@ -1,12 +1,18 @@
 import AuthLayout from '@/components/layouts/AuthLayout';
 import MainLayout from '@/components/layouts/MainLayout';
 import { createAccount } from '@/lib/services';
+import {
+  failNotificationToast,
+  successNotificationToast,
+} from '@/lib/services/notification.service';
 import { Button, Checkbox } from '@material-tailwind/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { NextPageWithLayout } from '../_app';
 
 const SignUpPage: NextPageWithLayout = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -28,11 +34,12 @@ const SignUpPage: NextPageWithLayout = () => {
     policy: boolean;
   }) => {
     createAccount({ email: data.email, password: data.password })
-      .then((resp) => {
-        console.log(resp);
+      .then(() => {
+        successNotificationToast();
+        router.push('/auth/login');
       })
       .catch(() => {
-        alert('ocurrió un error');
+        failNotificationToast();
       });
   };
 

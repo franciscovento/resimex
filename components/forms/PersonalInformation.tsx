@@ -4,7 +4,10 @@ import {
   createApplication,
   updateApplication,
 } from '@/lib/services/application.service';
-import { confirmModal } from '@/lib/services/notification.service';
+import {
+  confirmModal,
+  successNotificationToast,
+} from '@/lib/services/notification.service';
 import { Button, Input } from '@material-tailwind/react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -80,7 +83,7 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
     if (result) {
       createApplication(data)
         .then((e) => {
-          alert('Se creó la aplicación correctamente');
+          successNotificationToast('Application created successfully!');
           router.push('/dashboard');
         })
         .catch((e) => {
@@ -92,8 +95,8 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
   const editApplication = async (data: Application) => {
     if (isDirty) {
       return updateApplication(data)
-        .then((resp) => {
-          alert('Se actualizó la aplicación correctamente');
+        .then(() => {
+          successNotificationToast('Information updated!');
           router.push('/dashboard');
         })
         .catch((err) => {
@@ -152,6 +155,7 @@ const PersonalInformation = ({ defaultValues }: IPersonalInformation) => {
       <Input
         variant="standard"
         label="Contact Phone"
+        type="number"
         {...register('phone', { required: true })}
       />
 

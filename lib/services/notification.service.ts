@@ -1,5 +1,29 @@
 import Swal from 'sweetalert2';
 
+const successNotificationToast = (message: string = 'Action successful') => {
+  return Swal.fire({
+    text: message,
+    icon: 'success',
+    showConfirmButton: false,
+    toast: true,
+    position: 'top-end',
+    timer: 3000,
+  });
+};
+
+const failNotificationToast = (
+  message: string = 'An error ocurred, try again later'
+) => {
+  return Swal.fire({
+    text: message,
+    icon: 'warning',
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+  });
+};
+
 const confirmModal = (
   data?: {
     title?: string;
@@ -38,4 +62,4 @@ const confirmModal = (
   });
 };
 
-export { confirmModal };
+export { confirmModal, successNotificationToast, failNotificationToast };

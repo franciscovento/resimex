@@ -1,6 +1,7 @@
 import AuthLayout from '@/components/layouts/AuthLayout';
 import MainLayout from '@/components/layouts/MainLayout';
 import { login } from '@/lib/services';
+import { failNotificationToast } from '@/lib/services/notification.service';
 import { Button } from '@material-tailwind/react';
 import Cookies from 'js-cookie';
 import Link from 'next/link';
@@ -17,7 +18,6 @@ const LoginPage: NextPageWithLayout = () => {
   } = useForm({
     defaultValues: {
       email: '',
-
       password: '',
     },
     mode: 'onChange',
@@ -34,7 +34,7 @@ const LoginPage: NextPageWithLayout = () => {
         router.push('/dashboard');
       })
       .catch(() => {
-        alert('ocurrió un error');
+        failNotificationToast();
       });
   };
 

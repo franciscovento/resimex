@@ -4,6 +4,11 @@ import Title from '@/components/text/Title';
 import { getDateFormatted } from '@/lib/helpers/getDateFormatted';
 import { useApplication } from '@/lib/hooks/useApplication';
 import { updateApplication } from '@/lib/services/application.service';
+import {
+  confirmModal,
+  failNotificationToast,
+  successNotificationToast,
+} from '@/lib/services/notification.service';
 import { payProduct } from '@/lib/services/payments.services';
 import { Button, Card, Input } from '@material-tailwind/react';
 import Link from 'next/link';
@@ -13,8 +18,12 @@ const Checkout: NextPageWithLayout = () => {
   const { data: applicationResponse, error, isLoading } = useApplication();
   const application = applicationResponse?.results;
 
-  const confirmApplication = () => {
-    const result = confirm('You sure information is correct?');
+  const confirmApplication = async () => {
+    const result = await confirmModal({
+      message:
+        'Are you sure the information is correct? After this step you will not be able to modify your data.',
+      title: 'Do you want to continue?',
+    });
     if (result) {
       updateApplication({
         status: 'confirmed',
@@ -25,16 +34,18 @@ const Checkout: NextPageWithLayout = () => {
             success_url: process.env.NEXT_PUBLIC_APP_BASE_URL || '',
             cancel_url: process.env.NEXT_PUBLIC_APP_BASE_URL || '',
           })
-            .then((reps) => {
+            .then((resp) => {
               console.log(resp);
+              successNotificationToast();
             })
             .catch((error) => {
               console.log(error);
-              alert('Ocurrió un error inténtalo más tarde');
+              failNotificationToast('An error ocurred, please try again later');
             });
         })
         .catch((error) => {
           console.log(error);
+          failNotificationToast('An error ocurred, please try again later');
         });
     }
   };
