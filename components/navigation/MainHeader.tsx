@@ -5,11 +5,16 @@ import ResimexIcon from '../svg/ResimexIcon';
 const MainHeader = () => {
   return (
     <div className="py-8">
-      <div className="app-container flex justify-between items-center">
+      <div className="px-4 sm:px-12 flex items-center justify-between">
         <ResimexIcon />
         <ul className="sm:flex gap-12 hidden">
           {navigation.map((item, index) => (
-            <li key={index}>{item.title}</li>
+            <li
+              className="cursor-pointer duration-500 hover:text-app-sky-blue"
+              key={index}
+            >
+              {item.title}
+            </li>
           ))}
         </ul>
         <Link href={'/auth/login'}>

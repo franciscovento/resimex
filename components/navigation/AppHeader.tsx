@@ -11,9 +11,9 @@ const AppHeader = ({ bgTransparent = false }: IAppHeader) => {
 
   return (
     <div
-      className={`header-diagonal  py-4 ${bgTransparent && '!bg-transparent'}`}
+      className={`header-diagonal  py-8 ${bgTransparent && '!bg-transparent'}`}
     >
-      <div className="px-12 py-2 diagonal flex items-center justify-between">
+      <div className="px-12 diagonal flex items-center justify-between">
         <Link href={router.pathname.includes('auth') ? '/' : '/dashboard'}>
           <ResimexIcon />
         </Link>

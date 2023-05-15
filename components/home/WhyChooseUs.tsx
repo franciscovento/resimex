@@ -3,6 +3,10 @@ import BackToTop from '../svg/BackToTop';
 import Title from '../text/Title';
 
 const WhyChooseUs = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="app-banner bg-app-gray-lighter pb-28 relative">
       <div className="app-container relative">
@@ -32,9 +36,14 @@ const WhyChooseUs = () => {
             />
           </div>
         </div>
-        <div className="absolute right-4 -bottom-16 flex gap-2 items-center font-medium text-sm animate-bounce">
-          <BackToTop />
-          <span>Back to Top</span>
+        <div className="absolute right-4 -bottom-16 ">
+          <div
+            className="cursor-pointer flex gap-2 items-center font-medium text-sm animate-bounce"
+            onClick={handleScrollToTop}
+          >
+            <BackToTop />
+            <span>Back to Top</span>
+          </div>
         </div>
       </div>
     </div>
