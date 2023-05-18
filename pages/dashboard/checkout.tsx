@@ -12,9 +12,11 @@ import {
 import { payProduct } from '@/lib/services/payments.services';
 import { Button, Card, Input } from '@material-tailwind/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 
 const Checkout: NextPageWithLayout = () => {
+  const router = useRouter();
   const { data: applicationResponse, error, isLoading } = useApplication();
   const application = applicationResponse?.results;
 
@@ -28,14 +30,15 @@ const Checkout: NextPageWithLayout = () => {
       updateApplication({
         status: 'confirmed',
       })
-        .then((resp) => {
-          console.log(resp);
+        .then(() => {
           payProduct({
-            success_url: process.env.NEXT_PUBLIC_APP_BASE_URL || '',
-            cancel_url: process.env.NEXT_PUBLIC_APP_BASE_URL || '',
+            success_url:
+              process.env.NEXT_PUBLIC_APP_BASE_URL + '/dashboard' || '',
+            cancel_url:
+              process.env.NEXT_PUBLIC_APP_BASE_URL + '/dashboard' || '',
           })
             .then((resp) => {
-              console.log(resp);
+              router.push(resp.data.url);
               successNotificationToast();
             })
             .catch((error) => {
